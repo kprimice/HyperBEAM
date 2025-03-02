@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   hyperbeam:
     build:
@@ -11,10 +9,9 @@ services:
     volumes:
       - ./config.flat:/app/config.flat:ro
       - ./mywallet.json:/app/mywallet.json:ro
-      - ./hyperbeam_data:/app/hyperbeam_data
+      - ./hyperbeam_data:/app/data
 
     # Either single-line command:
-    command: >
-      rebar3 shell --eval "hb:start_mainnet(#{port => 9001, key_location => '/app/mywallet.json', store => {hb_store_fs, #{prefix => '/app/hyperbeam_data'}}})."
+    command: ["/app/bin/hb", "foreground"]
 
     tty: true
