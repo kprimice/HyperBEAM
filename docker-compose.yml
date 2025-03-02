@@ -6,6 +6,7 @@ services:
 
     environment:
       HB_PORT: "10000"
+      HB_KEY_LOCATION: "/app/mywallet.json"
 
     volumes:
       - ./config.flat:/app/config.flat:ro
