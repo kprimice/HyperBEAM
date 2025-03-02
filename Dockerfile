@@ -71,8 +71,7 @@ COPY --from=build /usr/local/bin/rebar3 /usr/local/bin/rebar3
 WORKDIR /app
 COPY --from=build /build/_build/prod/rel/hb/ /app
 
-# Expose typical HyperBEAM port
-EXPOSE 9001
+EXPOSE 10000
 
 # Optionally set a default CMD for debugging
 CMD ["/bin/bash"]
