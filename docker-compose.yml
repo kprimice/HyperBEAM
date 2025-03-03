@@ -12,8 +12,10 @@ services:
       - ./config.flat:/app/config.flat:ro
       - ./mywallet.json:/app/mywallet.json:ro
       - ./hyperbeam_data:/app/data
-
-      # Either single-line command:
-    command: ["/app/bin/hb", "foreground"]
-
-    tty: true
+    command:
+      [
+        "/app/bin/hb",
+        "foreground",
+        "-eval",
+        'hb:start_mainnet(#{ port => 10000, key_location => "/app/mywallet.json" }).',
+      ]
